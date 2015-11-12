@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.cluster import AgglomerativeClustering
 
 
-def cluster(number_of_clusters):
+def cluster(data, number_of_clusters):
     """
     Cluster hot guys by attributes.
     :param numpy.matrix matrix:
@@ -34,7 +34,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return cluster(3)
+    data = np.loadtxt('database.csv',
+                      dtype={'names': ('names', 'face_shape', 'skin_tone', 'hair_length',
+                                       'hair_type', 'hair_color', 'lips', 'eye_color', 'nose_shape'),
+                             'formats': ('S1', 'f4', 'f4', 'f4', 'f4', 'f4', 'f4', 'f4', 'f4')},
+                      delimiter=',',
+                      skiprows=1)
+    return cluster(data, 3)
 
 
 if __name__ == '__main__':
