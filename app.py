@@ -13,7 +13,7 @@ def read_data_from_database(filename_database, filename_user_inputs):
     :return: matrix of values, list of urls for images, row indices of matrix corresponding to user_inputs
     """
     database = np.loadtxt(filename_database, dtype={'names': ('face_shape', 'skin_tone', 'hair_length', 'hair_type',
-                                                       'hair_color', 'lips', 'eye_color', 'nose_shape', 'url'),
+                                                              'hair_color', 'lips', 'eye_color', 'nose_shape', 'url'),
                                                     'formats': ('f4', 'f4', 'f4', 'f4', 'f4', 'f4', 'f4', 'f4',
                                                                 'S1000')},
                           delimiter=',', skiprows=1, usecols=(1, 2, 3, 4, 5, 6, 7, 8, 9))
