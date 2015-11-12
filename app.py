@@ -12,18 +12,6 @@ def cluster(data, number_of_clusters):
     :rtype: list of lists
     :return: clusters of hot guys' names
     """
-    # matrix = np.array([[1.,  2.,  0.,  2.,  5.,  2.,  0.,  5.],
-    #                    [3.,  0.,  0.,  2.,  4.,  2.,  2.,  1.],
-    #                    [0.,  3.,  1.,  3.,  0.,  0.,  1.,  1.],
-    #                    [2.,  4.,  0.,  0.,  0.,  0.,  1.,  4.],
-    #                    [0.,  4.,  0.,  0.,  0.,  1.,  1.,  5.],
-    #                    [2.,  1.,  1.,  2.,  3.,  0.,  2.,  2.],
-    #                    [2.,  1.,  0.,  2.,  1.,  1.,  2.,  5.],
-    #                    [0.,  1.,  0.,  1.,  1.,  2.,  0.,  3.],
-    #                    [1.,  2.,  0.,  2.,  1.,  2.,  1.,  4.],
-    #                    [0.,  1.,  0.,  1.,  2.,  0.,  3.,  0.],
-    #                    [0.,  1.,  0.,  2.,  3.,  2.,  2.,  2.],
-    #                    [0.,  0.,  0.,  2.,  1.,  0.,  2.,  5.]])
     matrix = []
     for each_row in data:
         matrix.append(list(each_row))
@@ -41,8 +29,7 @@ def index():
                                                        'hair_color', 'lips', 'eye_color', 'nose_shape'),
                                              'formats': ('f4', 'f4', 'f4', 'f4', 'f4', 'f4', 'f4', 'f4')},
                       delimiter=',', skiprows=1, usecols=(1, 2, 3, 4, 5, 6, 7, 8))
-    # return cluster(3)
-    return str(data)
+    return cluster(data, 3)
 
 if __name__ == '__main__':
     app.run(debug=True)
